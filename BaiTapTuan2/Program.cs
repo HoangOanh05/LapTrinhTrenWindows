@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BaiTapTuan2
 {
@@ -60,7 +59,7 @@ namespace BaiTapTuan2
          
         }
 
-        
+
 
         static void InDSSV(List<SinhVien> DSSinhVien)
         {
@@ -108,11 +107,17 @@ namespace BaiTapTuan2
 
         static void TimTen(List<SinhVien> dSSinhVien)
         {
-            var ketqua = dSSinhVien
-                .Where(s => s.HoTen.StartsWith("A", StringComparison.OrdinalIgnoreCase))
-                .ToList();
+            var ketqua = dSSinhVien.Where(s =>
+            {
+               
+                string[] parts = s.HoTen.Trim().Split(' ');
+                string ten = parts[parts.Length - 1];
 
-            Console.WriteLine("== Sinh viên có tên bắt đầu bằng 'A' ==");
+                // so sánh tên bắt đầu bằng A
+                return ten.StartsWith("A", StringComparison.OrdinalIgnoreCase);
+            }).ToList();
+
+            Console.WriteLine("== Sinh viên có TÊN bắt đầu bằng 'A' ==");
             foreach (var sv in ketqua)
                 sv.Show();
         }

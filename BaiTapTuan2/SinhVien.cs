@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BaiTapTuan2
 {
@@ -52,7 +51,8 @@ namespace BaiTapTuan2
         }
         public void Show()
         {
-            Console.WriteLine("MSSV:{0} - Họ tên:{1} - Khoa:{2} - Điểm TB:{3} - Tuổi:{4}", this.MaSV, this.HoTen, this.Khoa, this.DiemTB, this.Tuoi);
+            Console.WriteLine("MSSV:{0} - Họ tên:{1} - Khoa:{2} - Điểm TB:{3} - Tuổi:{4}", 
+                this.MaSV, this.HoTen, this.Khoa, this.DiemTB, this.Tuoi);
         }
     }
 
