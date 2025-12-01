@@ -100,7 +100,7 @@
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(511, 161);
+            this.txtLastName.Location = new System.Drawing.Point(513, 161);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(239, 22);
             this.txtLastName.TabIndex = 7;
@@ -154,7 +154,7 @@
             // 
             // btnAddName
             // 
-            this.btnAddName.Location = new System.Drawing.Point(629, 359);
+            this.btnAddName.Location = new System.Drawing.Point(629, 370);
             this.btnAddName.Name = "btnAddName";
             this.btnAddName.Size = new System.Drawing.Size(123, 32);
             this.btnAddName.TabIndex = 13;
@@ -223,6 +223,7 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "First Name";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // Form1
             // 

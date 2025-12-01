@@ -83,7 +83,7 @@ namespace BaiTapTuan3
             this.BackColor = Color.OldLace;
         }
 
-        
+
         private void label1_Click_1(object sender, EventArgs e)
         {
             label1.BackColor = Color.OldLace;
@@ -105,5 +105,9 @@ namespace BaiTapTuan3
         private void lblFormat_Click(object sender, EventArgs e) { }
         private void lblListView_Click(object sender, EventArgs e) { }
 
+        private void label4_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
