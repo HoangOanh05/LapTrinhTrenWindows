@@ -26,6 +26,7 @@ namespace BaiTapTuan5
         }
         private void frm_soanthaovanban_Load(object sender, EventArgs e)
         {
+       
             // Load tất cả font hệ thống
             InstalledFontCollection fonts = new InstalledFontCollection();
             foreach (FontFamily f in fonts.Families)
@@ -279,6 +280,8 @@ namespace BaiTapTuan5
                 );
             }
         }
+
+        
     }
     }
 
