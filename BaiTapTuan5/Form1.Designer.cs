@@ -40,13 +40,13 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.cmbFont = new System.Windows.Forms.ToolStripComboBox();
+            this.cmbSize = new System.Windows.Forms.ToolStripComboBox();
             this.btnB = new System.Windows.Forms.ToolStripButton();
             this.btnI = new System.Windows.Forms.ToolStripButton();
             this.btnU = new System.Windows.Forms.ToolStripButton();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.cmbFont = new System.Windows.Forms.ComboBox();
-            this.cmbSize = new System.Windows.Forms.ComboBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +60,7 @@
             this.địnhDạngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -73,7 +73,7 @@
             this.thoátToolStripMenuItem});
             this.hệThốngToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
-            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(75, 26);
             this.hệThốngToolStripMenuItem.Text = "Hệ thống";
             // 
             // tạoTậpTinMớiToolStripMenuItem
@@ -112,7 +112,7 @@
             // địnhDạngToolStripMenuItem
             // 
             this.địnhDạngToolStripMenuItem.Name = "địnhDạngToolStripMenuItem";
-            this.địnhDạngToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.địnhDạngToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
             this.địnhDạngToolStripMenuItem.Text = "Định dạng";
             this.địnhDạngToolStripMenuItem.Click += new System.EventHandler(this.địnhDạngToolStripMenuItem_Click);
             // 
@@ -124,10 +124,12 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNew,
             this.btnSave,
+            this.cmbFont,
+            this.cmbSize,
             this.btnB,
             this.btnI,
             this.btnU});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 50);
             this.toolStrip1.TabIndex = 4;
@@ -155,59 +157,6 @@
             this.btnSave.Text = "toolStripButton2";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
-            // btnB
-            // 
-            this.btnB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnB.Image = ((System.Drawing.Image)(resources.GetObject("btnB.Image")));
-            this.btnB.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnB.Margin = new System.Windows.Forms.Padding(170, 0, 0, 0);
-            this.btnB.Name = "btnB";
-            this.btnB.Size = new System.Drawing.Size(29, 50);
-            this.btnB.Text = "toolStripButton3";
-            this.btnB.Click += new System.EventHandler(this.btnB_Click);
-            // 
-            // btnI
-            // 
-            this.btnI.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnI.Image = ((System.Drawing.Image)(resources.GetObject("btnI.Image")));
-            this.btnI.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnI.Margin = new System.Windows.Forms.Padding(0);
-            this.btnI.Name = "btnI";
-            this.btnI.Size = new System.Drawing.Size(29, 50);
-            this.btnI.Text = "toolStripButton4";
-            this.btnI.Click += new System.EventHandler(this.btnI_Click);
-            // 
-            // btnU
-            // 
-            this.btnU.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnU.Image = ((System.Drawing.Image)(resources.GetObject("btnU.Image")));
-            this.btnU.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnU.Margin = new System.Windows.Forms.Padding(0);
-            this.btnU.Name = "btnU";
-            this.btnU.Size = new System.Drawing.Size(29, 50);
-            this.btnU.Text = "toolStripButton5";
-            this.btnU.Click += new System.EventHandler(this.btnU_Click);
-            // 
-            // cmbFont
-            // 
-            this.cmbFont.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbFont.FormattingEnabled = true;
-            this.cmbFont.Location = new System.Drawing.Point(85, 41);
-            this.cmbFont.Name = "cmbFont";
-            this.cmbFont.Size = new System.Drawing.Size(147, 26);
-            this.cmbFont.TabIndex = 5;
-            this.cmbFont.SelectedIndexChanged += new System.EventHandler(this.cmbFont_SelectedIndexChanged_1);
-            // 
-            // cmbSize
-            // 
-            this.cmbSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSize.FormattingEnabled = true;
-            this.cmbSize.Location = new System.Drawing.Point(245, 41);
-            this.cmbSize.Name = "cmbSize";
-            this.cmbSize.Size = new System.Drawing.Size(49, 26);
-            this.cmbSize.TabIndex = 6;
-            this.cmbSize.SelectedIndexChanged += new System.EventHandler(this.cmbSize_SelectedIndexChanged_1);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(0, 73);
@@ -216,14 +165,49 @@
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             // 
+            // cmbFont
+            // 
+            this.cmbFont.Name = "cmbFont";
+            this.cmbFont.Size = new System.Drawing.Size(121, 50);
+            // 
+            // cmbSize
+            // 
+            this.cmbSize.Name = "cmbSize";
+            this.cmbSize.Size = new System.Drawing.Size(75, 50);
+            // 
+            // btnB
+            // 
+            this.btnB.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnB.Image = ((System.Drawing.Image)(resources.GetObject("btnB.Image")));
+            this.btnB.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnB.Name = "btnB";
+            this.btnB.Size = new System.Drawing.Size(29, 47);
+            this.btnB.Text = "toolStripButton1";
+            // 
+            // btnI
+            // 
+            this.btnI.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnI.Image = ((System.Drawing.Image)(resources.GetObject("btnI.Image")));
+            this.btnI.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnI.Name = "btnI";
+            this.btnI.Size = new System.Drawing.Size(29, 47);
+            this.btnI.Text = "toolStripButton2";
+            // 
+            // btnU
+            // 
+            this.btnU.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnU.Image = ((System.Drawing.Image)(resources.GetObject("btnU.Image")));
+            this.btnU.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnU.Name = "btnU";
+            this.btnU.Size = new System.Drawing.Size(29, 47);
+            this.btnU.Text = "toolStripButton3";
+            // 
             // frm_soanthaovanban
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 372);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.cmbSize);
-            this.Controls.Add(this.cmbFont);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -251,13 +235,13 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnNew;
         private System.Windows.Forms.ToolStripButton btnSave;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ToolStripComboBox cmbFont;
+        private System.Windows.Forms.ToolStripComboBox cmbSize;
         private System.Windows.Forms.ToolStripButton btnB;
         private System.Windows.Forms.ToolStripButton btnI;
         private System.Windows.Forms.ToolStripButton btnU;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ComboBox cmbFont;
-        private System.Windows.Forms.ComboBox cmbSize;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
