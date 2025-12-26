@@ -65,6 +65,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\6b4d55f95b818de7a698b4ae89bbdf92.jpg" />
+    <Content Include="image\OIP %283%29.jpg" />
+    <Content Include="image\OIP %284%29.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
