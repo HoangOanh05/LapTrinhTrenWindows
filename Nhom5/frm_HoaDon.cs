@@ -51,24 +51,21 @@ namespace DoAn_Handmade
             try
             {
                 db = new QLCHContextDB();
-
                 var hoaDon = db.HoaDons.FirstOrDefault(h => h.MaHD == maHD);
                 if (hoaDon == null) return;
 
-                // ---- THÔNG TIN CHUNG ----
                 txt_MaHD.Text = TaoMaHDNgauNhien();
                 dtp_NgayLap.Value = DateTime.Now;
                 txt_TaiKhoan.Text = hoaDon.TenTaiKhoan;
 
-                // LẤY CHI TIẾT HÓA ĐƠN 
                 var listChiTietRaw = db.ChiTietHoaDons
                     .Where(ct => ct.MaHD == maHD)
-                    .ToList(); // bắt buộc
+                    .ToList();
 
-                // DỮ LIỆU HIỂN THỊ (CÓ CHẤT LIỆU) 
                 var chiTietHienThi = listChiTietRaw.Select(ct => new
                 {
                     TenSP = ct.SanPham != null ? ct.SanPham.TenSP : "",
+                    ChatLieu = ct.SanPham != null ? ct.SanPham.ChatLieu : "", // LẤY DỮ LIỆU Ở ĐÂY
                     SoLuong = ct.SoLuong,
                     GiamGia = ct.GiamGia,
                     GiaBan = ct.DonGia,
@@ -78,15 +75,16 @@ namespace DoAn_Handmade
                 dgv_HoaDon.AutoGenerateColumns = false;
                 dgv_HoaDon.DataSource = chiTietHienThi;
 
+                // Gán đúng tên thuộc tính vào các cột
                 dgv_HoaDon.Columns["Column1"].DataPropertyName = "TenSP";
                 dgv_HoaDon.Columns["Column2"].DataPropertyName = "SoLuong";
                 dgv_HoaDon.Columns["Column3"].DataPropertyName = "GiamGia";
                 dgv_HoaDon.Columns["Column4"].DataPropertyName = "GiaBan";
-                dgv_HoaDon.Columns["Column5"].DataPropertyName = "ChatLieu";
+                dgv_HoaDon.Columns["Column5"].DataPropertyName = "ChatLieu"; // KHỚP VỚI PROPERTY Ở TRÊN
 
                 dgv_HoaDon.Columns["Column4"].DefaultCellStyle.Format = "N0";
+                dgv_HoaDon.Columns["Column3"].DefaultCellStyle.Format = "N0";
 
-                // ---- TÍNH TỔNG TIỀN ----
                 decimal tongTien = (decimal)chiTietHienThi.Sum(x => x.ThanhTien);
                 txt_ThanhTien.Text = tongTien.ToString("N0") + " VNĐ";
             }
@@ -95,7 +93,6 @@ namespace DoAn_Handmade
                 MessageBox.Show("Lỗi hiển thị hóa đơn: " + ex.Message);
             }
         }
-
 
         private void btn_TroVe_Click(object sender, EventArgs e)
         {

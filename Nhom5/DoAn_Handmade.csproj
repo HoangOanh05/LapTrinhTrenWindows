@@ -190,6 +190,7 @@
     <Content Include="image\aokhoac.png" />
     <Content Include="image\chuotbong.png" />
     <Content Include="image\gioxach.png" />
+    <Content Include="image\mklacda.png" />
     <Content Include="image\mockhoa.png" />
     <Content Include="image\thomummim.png" />
   </ItemGroup>
