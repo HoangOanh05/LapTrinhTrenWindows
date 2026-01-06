@@ -40,36 +40,38 @@ namespace DoAn_Handmade
             return $"{c1}{c2}{so}";
         }
 
-        // --- SỬA LẠI HÀM LOAD ĐỂ HỖ TRỢ TÌM KIẾM ---
-        public void LoadLichSuHoaDon(string keyword = "")
+        // --- SỬA LẠI HÀM LOAD ĐỂ HỖ TRỢ TÌM KIẾM ---
+        public void LoadLichSuHoaDon(string keyword = "")
         {
             try
             {
                 db = new QLCHContextDB();
 
-                var listFromDB = db.ChiTietHoaDons
-          .Include(ct => ct.HoaDon)
-          .Include(ct => ct.SanPham)
-          .Where(ct => ct.HoaDon.TrangThai == "Đã in")
-          .OrderByDescending(ct => ct.HoaDon.NgayLap)
-          .ToList();
+                // 1. Lấy dữ liệu từ DB (Eager Loading với Include)
+                var listFromDB = db.ChiTietHoaDons
+                    .Include(ct => ct.HoaDon)
+                    .Include(ct => ct.SanPham)
+                    .Where(ct => ct.HoaDon.TrangThai == "Đã in")
+                    .OrderByDescending(ct => ct.HoaDon.NgayLap)
+                    .ToList();
 
-                // 2. Chuyển đổi sang dạng hiển thị (Anonymous Type)
-                var result = listFromDB.Select(ct => new
+                // 2. Chuyển đổi sang dạng hiển thị (Anonymous Type)
+                var result = listFromDB.Select(ct => new
                 {
-                    MaHienThi = TaoMaHienThi(ct.HoaDon.MaHD), 
-                    MaHD = ct.HoaDon.MaHD,                 
-                    TenTK = ct.HoaDon.TenTaiKhoan,
+                    MaHienThi = TaoMaHienThi(ct.HoaDon.MaHD),
+                    MaHD = ct.HoaDon.MaHD,
+                    TenTK = ct.HoaDon.TenTaiKhoan,
                     NgayLap = ct.HoaDon.NgayLap,
                     TenSP = ct.SanPham != null ? ct.SanPham.TenSP : "N/A",
+                    ChatLieu = ct.SanPham != null ? ct.SanPham.ChatLieu : "N/A", // Đã bổ sung
                     SoLuong = ct.SoLuong,
                     GiamGia = ct.GiamGia,
                     GiaBan = ct.DonGia,
                     TongTien = (ct.DonGia - (decimal)ct.GiamGia) * ct.SoLuong
                 }).ToList();
 
-                // 3. LỌC THEO TỪ KHÓA (Tìm theo mã chữ AB123)
-                if (!string.IsNullOrEmpty(keyword))
+                // 3. Lọc theo từ khóa
+                if (!string.IsNullOrEmpty(keyword))
                 {
                     string k = keyword.ToLower();
                     result = result.Where(x => x.MaHienThi.ToLower().Contains(k)).ToList();
@@ -78,13 +80,13 @@ namespace DoAn_Handmade
                 dgv_LSHD.AutoGenerateColumns = false;
                 dgv_LSHD.DataSource = result;
 
-                // Gán dữ liệu cho các cột
-                dgv_LSHD.Columns["Column1"].DataPropertyName = "MaHienThi";
+                // Gán dữ liệu cho các cột (Đảm bảo tên DataPropertyName khớp chính xác)
+                dgv_LSHD.Columns["Column1"].DataPropertyName = "MaHienThi";
                 dgv_LSHD.Columns["Column2"].DataPropertyName = "TenTK";
                 dgv_LSHD.Columns["Column3"].DataPropertyName = "NgayLap";
                 dgv_LSHD.Columns["Column4"].DataPropertyName = "TenSP";
                 dgv_LSHD.Columns["Column5"].DataPropertyName = "SoLuong";
-                dgv_LSHD.Columns["Column6"].DataPropertyName = "ChatLieu";
+                dgv_LSHD.Columns["Column6"].DataPropertyName = "ChatLieu"; // Cột này sẽ hiển thị đúng
                 dgv_LSHD.Columns["Column7"].DataPropertyName = "GiamGia";
                 dgv_LSHD.Columns["Column8"].DataPropertyName = "GiaBan";
                 dgv_LSHD.Columns["Column9"].DataPropertyName = "TongTien";
@@ -98,7 +100,7 @@ namespace DoAn_Handmade
             }
         }
 
-        private void txt_TimKiemMaHD_TextChanged(object sender, EventArgs e)
+        private void txt_TimKiemMaHD_TextChanged(object sender, EventArgs e)
         {
             // Gọi hàm Load với từ khóa hiện tại
             LoadLichSuHoaDon(txt_TimKiemMaHD.Text.Trim());
