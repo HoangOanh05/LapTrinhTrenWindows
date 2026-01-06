@@ -408,6 +408,7 @@
             this.txt_timkiemmasanpham.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_timkiemmasanpham.Name = "txt_timkiemmasanpham";
             this.txt_timkiemmasanpham.Size = new System.Drawing.Size(100, 27);
+            this.txt_timkiemmasanpham.TextChanged += new System.EventHandler(this.txt_timkiemmasanpham_TextChanged);
             // 
             // frm_SanPham
             // 

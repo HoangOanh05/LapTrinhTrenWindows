@@ -16,7 +16,7 @@ namespace DoAn_Handmade
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Store());
+            Application.Run(new frm_TrangChu());
         }
     }
 }

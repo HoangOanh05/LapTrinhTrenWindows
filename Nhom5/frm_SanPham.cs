@@ -148,16 +148,12 @@ namespace DoAn_Handmade
 
         private void TxtGia_Leave(object sender, EventArgs e)
         {
-            TextBox t = sender as TextBox;
-            if (decimal.TryParse(t.Text.Replace(".", ""), out decimal v))
-                t.Text = v.ToString("#,##0", vi);
-            else t.Text = "0";
+
         }
 
         private void TxtGiamGia_Leave(object sender, EventArgs e)
         {
-            if (!double.TryParse(txt_GiamGia.Text, out _))
-                txt_GiamGia.Text = "0";
+
         }
 
         private void btn_LamMoi_Click(object sender, EventArgs e)
@@ -309,6 +305,34 @@ namespace DoAn_Handmade
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi xóa sản phẩm: " + ex.Message);
+            }
+        }
+
+        private void txt_timkiemmasanpham_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // 1. Lấy chuỗi tìm kiếm từ TextBox và chuẩn hóa (xóa khoảng trắng, chuyển về chữ thường)
+                string keyword = txt_timkiemmasanpham.Text.Trim().ToLower();
+
+                // 2. Nếu ô tìm kiếm trống, hiển thị lại toàn bộ danh sách
+                if (string.IsNullOrEmpty(keyword))
+                {
+                    LoadDataGrid();
+                    return;
+                }
+
+                // 3. Truy vấn LINQ để lọc danh sách sản phẩm theo Mã SP
+                var filteredData = db.SanPhams
+                                     .Where(p => p.MaSP.ToLower().Contains(keyword))
+                                     .ToList();
+
+                // 4. Cập nhật lại nguồn dữ liệu cho DataGridView
+                dgv_SanPham.DataSource = filteredData;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi tìm kiếm: " + ex.Message);
             }
         }
     }
